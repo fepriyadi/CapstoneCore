@@ -13,7 +13,8 @@ let package = Package(
             targets: ["Core"]),
     ],dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/realm/realm-swift.git", branch: "master")
+        .package(url: "https://github.com/realm/realm-swift.git", branch: "master"),
+        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.2.0"))
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -22,6 +23,7 @@ let package = Package(
             name: "Core",
             dependencies: [
               .product(name: "RealmSwift", package: "realm-swift"),
+              "Alamofire"
             ]),
         .testTarget(
             name: "CoreTests",
